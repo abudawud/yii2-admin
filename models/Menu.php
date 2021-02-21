@@ -56,11 +56,12 @@ class Menu extends \yii\db\ActiveRecord
             [['parent_name'], 'in',
                 'range' => static::find()->select(['name'])->column(),
                 'message' => 'Menu "{value}" not found.'],
-            [['parent', 'route', 'data', 'order'], 'default'],
+            [['parent', 'route', 'icon', 'order'], 'default'],
             [['parent'], 'filterParent', 'when' => function() {
                 return !$this->isNewRecord;
             }],
             [['order'], 'integer'],
+            [['icon'], 'string'],
             [['route'], 'in',
                 'range' => static::getSavedRoutes(),
                 'message' => 'Route "{value}" not found.']
@@ -98,7 +99,7 @@ class Menu extends \yii\db\ActiveRecord
             'parent_name' => Yii::t('rbac-admin', 'Parent Name'),
             'route' => Yii::t('rbac-admin', 'Route'),
             'order' => Yii::t('rbac-admin', 'Order'),
-            'data' => Yii::t('rbac-admin', 'Data'),
+            'icon' => Yii::t('rbac-admin', 'Icon'),
         ];
     }
 

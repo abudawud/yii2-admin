@@ -32,7 +32,7 @@ $this->registerJs($this->render('_script.js'));
         <div class="col-sm-6">
             <?= $form->field($model, 'order')->input('number') ?>
 
-            <?= $form->field($model, 'icon')->textarea(['id' => 'icon']) ?>
+            <?= $form->field($model, 'icon')->textInput(['id' => 'icon']) ?>
         </div>
     </div>
 
